@@ -1,0 +1,14 @@
+{% extends 'base.html' %}  
+{% block content %}  
+<h2>WoMen Products</h2>  
+<a href="{% url 'women-add' %}">Add New WoMen Product</a>  
+<ul>  
+    {% for women in object_list %}  
+        <li>  
+            {{ women.Style_Type }} - {{ women.Product_Type }} - {{ women.price }}   
+            <a href="{% url 'women-edit' women.pk %}">Edit</a>   
+            <a href="{% url 'women-delete' women.pk %}">Delete</a>  
+        </li>  
+    {% endfor %}  
+</ul>  
+{% endblock %}

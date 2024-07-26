@@ -1,0 +1,14 @@
+{% extends 'base.html' %}  
+{% block content %}  
+<h2>Men Products</h2>  
+<a href="{% url 'men-add' %}">Add New Men Product</a>  
+<ul>  
+    {% for men in object_list %}  
+        <li>  
+            {{ men.Style_Type }} - {{ men.Product_Type }} - {{ men.price }}   
+            <a href="{% url 'men-edit' men.pk %}">Edit</a>   
+            <a href="{% url 'men-delete' men.pk %}">Delete</a>  
+        </li>  
+    {% endfor %}  
+</ul>  
+{% endblock %}
