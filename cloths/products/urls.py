@@ -1,4 +1,5 @@
 from django.conf import settings  
+from .views import register, MenListView, WomenListView
 from django.conf.urls.static import static  
 from django.urls import path
 from . import views 
@@ -25,6 +26,9 @@ if settings.DEBUG:
 # these urls refers to templates_View
 
 urlpatterns = [  
+    path('register/', register, name='register'),  
+    path('men/', MenListView.as_view(), name='men-list'),  
+    path('women/', WomenListView.as_view(), name='women-list'),
     path('men/', views.MenListView.as_view(), name='men-list'),  
     path('men/add/', views.MenCreateView.as_view(), name='men-add'),  
     path('men/<int:pk>/edit/', views.MenUpdateView.as_view(), name='men-edit'),  
